@@ -1,15 +1,8 @@
 # rpg-book-website
 
-## Create base image
+## With docker
 ```
-docker build . -t react
-```
-
-cd  <app-name>
-```
-docker run -v $(pwd):/app -it react yarn add @material-ui/core
-docker run -v $(pwd):/app -it react yarn add @material-ui/icons 
-docker run -v $(pwd):/app -it -p3000:3000 react yarn start
+docker-compose up
 ```
 
 http://localhost:3000/

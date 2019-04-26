@@ -3,8 +3,8 @@ services:
   rpg-book:
     image: react
     volumes: 
-      - ./:./
+      - ./app:/app
     ports:
       - 3000:3000
     env_file: .env
-    command: go run application.go
+    command: yarn start
