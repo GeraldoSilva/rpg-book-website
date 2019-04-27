@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Cadastro = ({title }) => (
   <div>
-    Cadastro
+    Cadastro {title}
   </div>
 );
 
