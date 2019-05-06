@@ -1,14 +1,4 @@
-import { clickReducer } from './clickReducer';
-import { otherReducer } from './otherReducer';
-import { combineReducers } from 'redux';
+import { createStore } from 'redux'
+import userReducer from './userReducer'
 
-
-export const Reducers = combineReducers({
-  clickState: clickReducer,
-  otherState: otherReducer
-});
-
-export const clickButton = value => ({
-    type: 'CLICK_UPDATE_VALUE',
-    newValue: value
-});
+export default createStore(userReducer)

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MenuAppBar from './MenuAppBar';
 
-const Header = ({appState }) => (
-  <MenuAppBar appState={appState}/>
-);
+
+
+class Header extends Component {
+
+    render() {
+      const { appState } = this.props;
+      return (
+        <MenuAppBar appState={appState} />
+      );
+    }
+
+}
 
 Header.propTypes = {
-  logged: PropTypes.bool
+  appState: PropTypes.object.isRequired
 };
 
 

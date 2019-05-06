@@ -24,9 +24,10 @@
   },
   "homepage": "https://github.com/GeraldoSilva/rpg-book-website#readme",
   "dependencies": {
+    "material-ui": "0.20.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "material-ui": "0.20.2"
+    "react-router": "v4"
   },
   "devDependencies": {
     "webpack": "^4.30.0"

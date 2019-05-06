@@ -7,9 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import {BrowserRouter as Router, Link} from 'react-router-dom'
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { connect } from 'react-redux'
+// import userActions from '../store/userActions'
 
 
 const styles = {
@@ -47,7 +48,7 @@ class MenuAppBar extends React.Component {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
-    if (this.props.isLoggedIn) {
+    if (this.props.isLogged) {
       return <div>
       <IconButton
         aria-owns={open ? 'menu-appbar' : undefined}
@@ -77,11 +78,10 @@ class MenuAppBar extends React.Component {
       </Menu>
     </div>
     }
-    return <Router>
-        <Link to={`/login`} 
+    return (
+        <a href={`/login`} 
           title="Entrar"
-          style={{color: 'white', textDecoration: 'none'}}>Entrar</Link>
-      </Router>
+          style={{color: 'white', textDecoration: 'none'}}>Entrar</a>)
   }
 
   render() {
@@ -96,11 +96,9 @@ class MenuAppBar extends React.Component {
             </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
             
-            <Router>
-              <Link to={`/`} 
+            <a href={`/`} 
                 title="Home"
-                style={{color: 'white', textDecoration: 'none'}}>RPG Book</Link>
-            </Router>
+                style={{color: 'white', textDecoration: 'none'}}>RPG Book</a>
 
             </Typography>
             {this.UserAuthMenu()}
@@ -115,6 +113,7 @@ class MenuAppBar extends React.Component {
 
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  appState: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MenuAppBar);
+export default connect(store => ({ isLogged: store.isLogged }))(withStyles(styles)(MenuAppBar));
